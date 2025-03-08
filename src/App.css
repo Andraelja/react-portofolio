@@ -1,0 +1,204 @@
+/* FONT */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&display=swap");
+
+/* VARIABEL */
+:root {
+  --primary-color: #fb6a27;
+  --dark-color: #0f0f0f;
+  --grey-color: grey;
+
+  --h1-font-size: 40px;
+  --h2-font-size: 32px;
+  --small-font-size: 14px;
+}
+
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* GLOBAL CSS */
+section {
+  padding: 70px 0;
+}
+section .section-title {
+  font-size: var(--h2-font-size);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn-orange {
+  background-color: var(--primary-color);
+  color: white;
+}
+.text-orange {
+  color: var(--primary-color);
+}
+.text-dark {
+  color: var(--dark-color);
+}
+.fs-7 {
+  font-size: var(--small-font-size);
+}
+.form-control {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+/* CSS PER SECSETION */
+.navbar .nav-item .nav-link:hover,
+.navbar .nav-item .nav-link.active {
+  color: var(--primary-color);
+}
+
+/* Header */
+/* ======== HEADER SECTION ======== */
+.header-section {
+  padding: 60px 0;
+  text-align: left;
+}
+
+/* Title & Description */
+.header-section .header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.header-section .header-desc {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Skill List */
+.header-section .header-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-section .header-skill {
+  color: var(--dark-color);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.header-section .header-skill:hover {
+  color: var(--primary-color);
+}
+
+.header-section .header-skill i {
+  transition: transform 0.3s;
+}
+
+.header-section .header-skill:hover i {
+  transform: rotate(-45deg);
+}
+
+/* Statistik */
+.stats-container {
+  display: flex;
+  gap: 40px;
+}
+
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stats-box h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.stats-box p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Gambar Profil */
+.header-section .header-img {
+  width: 85%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-section {
+    text-align: center;
+  }
+
+  .header-section .row {
+    flex-direction: column-reverse;
+  }
+
+  .header-section .header-title {
+    font-size: 2rem;
+  }
+
+  .header-section .header-desc {
+    font-size: 1rem;
+  }
+
+  .header-section .header-skills {
+    align-items: center;
+  }
+
+  .stats-container {
+    justify-content: center;
+  }
+}
+
+.portfolio-section .card {
+  width: 350px;
+  height: 200px;
+  margin-right: 22px;
+}
+
+.portfolio-section .card .card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 7698px) {
+  .portfolio-section .card .card-img-top {
+    height: 100px;
+  }
+}
+
+/* Skills */
+.skills-section,
+footer {
+  background-color: #030304;
+}
+.skills-section .progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--grey-color);
+}
+.skills-section .progress-bar .progress {
+  background-color: var(--primary-color);
+}
