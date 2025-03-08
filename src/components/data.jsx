@@ -1,3 +1,8 @@
+import img1 from "../assets/images/s.png";
+import img2 from "../assets/images/ss.png";
+import img3 from "../assets/images/sss.png";
+import img from "../assets/images/skill-photo.png";
+
 export const pageLinks = [
   {
     id: 1,
@@ -26,32 +31,26 @@ export const pageLinks = [
   },
 ];
 
-// export const portofolio = [
-//   {
-//     id: 1,
-//     img: img1,
-//     title: "Website Kecamatan",
-//     text: "Detail Portofolio"
-//   },
-//   {
-//     id: 2,
-//     img: img2,
-//     title: "Website Kecamatan",
-//     text: "Detail Portofolio"
-//   },
-//   {
-//     id: 3,
-//     img: img3,
-//     title: "Website Kecamatan",
-//     text: "Detail Portofolio"
-//   },
-//   {
-//     id: 4,
-//     img: img4,
-//     title: "Website Kecamatan",
-//     text: "Detail Portofolio"
-//   },
-// ];
+export const portofolio = [
+  {
+    id: 1,
+    title: "Website Kecamatan",
+    image: img1,
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "Online Shop",
+    image: img2,
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Website UMKM",
+    image: img3,
+    link: "#",
+  },
+];
 
 export const working = [
   {
@@ -71,5 +70,43 @@ export const working = [
     date: "2022 - Today",
     title: "Information System - Student",
     place: "Politeknik of Padang",
+  },
+];
+
+export const skills = [
+  { id: 1, name: "HTML", percentage: 90 },
+  { id: 2, name: "CSS", percentage: 90 },
+  { id: 3, name: "JavaScript", percentage: 70 },
+  { id: 4, name: "PHP", percentage: 90 },
+  { id: 5, name: "MySQL", percentage: 90 },
+  { id: 6, name: "Laravel", percentage: 80 },
+];
+
+export const timeline = [
+  {
+    id: 1,
+    period: "September 2022 - Today",
+    title: "Information System - Student",
+    institution: "Politeknik of Padang",
+  },
+  {
+    id: 2,
+    period: "2019 - 2022",
+    title: "Science - Student",
+    institution: "SMAN 4 MANDAU",
+  },
+  {
+    id: 3,
+    period: "2016 - 2019",
+    title: "General - Student",
+    institution: "SMPN 1 MANDAU",
+  },
+];
+
+export const contact = [
+  {
+    address: "28784 Andra Elja, Duri, Riau",
+    phone: "+62 831 7388 6797",
+    email: "andraeljaprama@gmail.com",
   },
 ];

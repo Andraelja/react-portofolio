@@ -9,9 +9,11 @@ const Header = () => {
           <div className="col-md-7 mt-5">
             <h3 className="header-title">Hallo, saya Andra</h3>
             <p className="header-desc">
-              Halo! Saya Andra Elja Prama, seorang pengembang web dengan keahlian di HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, dan Laravel. 
-              Saya bersemangat dalam menciptakan desain web yang menarik dan aplikasi web yang dinamis. 
-              Mari berkolaborasi untuk mewujudkan proyek web yang luar biasa bersama!
+              Halo! Saya Andra Elja Prama, seorang pengembang web dengan
+              keahlian di HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, dan
+              Laravel. Saya bersemangat dalam menciptakan desain web yang
+              menarik dan aplikasi web yang dinamis. Mari berkolaborasi untuk
+              mewujudkan proyek web yang luar biasa bersama!
             </p>
 
             <div className="header-skills">
@@ -29,11 +31,15 @@ const Header = () => {
             <div className="d-flex stats-container mt-5">
               <div className="stats-box">
                 <h2 className="header-skill fw-bold mb-0">01+</h2>
-                <p className="text-secondary">Year of <br /> Experience</p>
+                <p className="text-secondary">
+                  Year of <br /> Experience
+                </p>
               </div>
               <div className="stats-box">
                 <h2 className="header-skill fw-bold mb-0">10k+</h2>
-                <p className="text-secondary">Happy <br /> Customers</p>
+                <p className="text-secondary">
+                  Happy <br /> Customers
+                </p>
               </div>
             </div>
           </div>

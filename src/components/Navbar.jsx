@@ -24,9 +24,11 @@ const Navbar = () => {
             {pageLinks.map((data) => {
               return (
                 <li className="nav-item" key={data.id}>
-                  <a href={data.href} className="nav-link">{data.text}</a>
+                  <a href={data.href} className="nav-link">
+                    {data.text}
+                  </a>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
