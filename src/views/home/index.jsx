@@ -1,0 +1,20 @@
+// views/home/index.jsx
+import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
+import Portofolio from "../../components/Portofolio";
+import Skills from "../../components/Skills";
+import Working from "../../components/Working";
+import Footer from "../../components/Footer";
+
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      <Header />
+      <Portofolio />
+      <Skills />
+      <Working />
+      <Footer />
+    </>
+  );
+}
