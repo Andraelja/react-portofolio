@@ -37,6 +37,12 @@ export default function SidebarMenu() {
           >
             Users
           </Link>
+          <Link
+            to="/admin/home"
+            className="list-group-item list-group-item-action"
+          >
+            Home
+          </Link>
           <a
             onClick={logout}
             className="list-group-item list-group-item-action"

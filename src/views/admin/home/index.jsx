@@ -4,41 +4,40 @@ import Cookies from "js-cookie";
 import api from "../../../services/api";
 import SidebarMenu from "../../../components/SidebarMenu";
 
-export default function UsersIndex() {
-  const [users, setUsers] = useState([]);
-  const fetchDataUsers = async () => {
+export default function HomeIndex() {
+  const [home, setHome] = useState([]);
+  const fetchDataHome = async () => {
     const token = Cookies.get("token");
 
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
-      //fetch data from API with Axios
       try {
-        const response = await api.get("/api/user");
-        setUsers(response.data.data);
+        const response = await api.get("/api/home");
+        setHome(response.data.data);
       } catch (error) {
-        console.error("There was an error fetching the users!", error);
+        console.error("Terjadi kesalahan saat mengambil data!");
       }
     } else {
-      console.error("Token is not available!");
+      console.error("Token tidak tersedia!");
     }
   };
 
   useEffect(() => {
-    fetchDataUsers();
+    fetchDataHome();
   }, []);
 
-  const deleteUser = async (id) => {
+  const deleteHome = async (id) => {
     const token = Cookies.get("token");
 
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
       try {
-        await api.delete(`/api/user/${id}`);
-        fetchDataUsers();
+        await api.delete(`/api/home/${id}`);
+        fetchDataHome;
       } catch (error) {
-        console.error("There was an error deleting the user!", error);
+        console.error("There was an error deleting the home!", error);
       }
     } else {
       console.error("Token is not available!");
@@ -54,38 +53,40 @@ export default function UsersIndex() {
         <div className="col-md-9">
           <div className="card border-0 rounded shadow-sm">
             <div className="card-header d-flex justify-content-between align-items-center">
-              <span>USERS</span>
+              <span>HOME</span>
               <Link
-                to="/admin/user/create"
+                to="/admin/home/create"
                 className="btn btn-sm btn-success rounded shadow-sm border-0"
               >
-                ADD USER
+                ADD HOME
               </Link>
             </div>
             <div className="card-body">
               <table className="table table-bordered">
                 <thead className="bg-dark text-white">
                   <tr>
-                    <th scope="col">Full Name</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Deskripsi</th>
                     <th scope="col" style={{ width: "17%" }}>
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {users.length > 0 ? (
-                    users.map((user, index) => (
+                  {home.length > 0 ? (
+                    home.map((home, index) => (
                       <tr key={index}>
-                        <td>{user.name}</td>
+                        <td>{home.judul}</td>
+                        <td>{home.deskripsi}</td>
                         <td className="text-center">
                           <Link
-                            to={`/admin/user/edit/${user.id}`}
+                            to={`/admin/home/edit/${home.id}`}
                             className="btn btn-sm btn-primary rounded-sm shadow border-0 me-2"
                           >
                             EDIT
                           </Link>
                           <button
-                            onClick={() => deleteUser(user.id)}
+                            onClick={() => deleteHome(home.id)}
                             className="btn btn-sm btn-danger rounded-sm shadow border-0"
                           >
                             DELETE

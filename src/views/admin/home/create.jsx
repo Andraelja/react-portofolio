@@ -1,0 +1,94 @@
+//import useState dan useEffect
+import { useState } from "react";
+
+//import SidebarMenu
+
+//import useNavigate
+import { useNavigate } from "react-router-dom";
+
+//import js cookie
+import Cookies from "js-cookie";
+
+//import api
+import api from "../../../services/api";
+import SidebarMenu from "../../../components/SidebarMenu";
+
+//get token from cookies
+const token = Cookies.get("token");
+
+export default function UsersCreate() {
+  const navigate = useNavigate();
+
+  const [judul, setJudul] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
+  const [validation, setValidation] = useState([]);
+
+  const storeHome = async (e) => {
+    e.preventDefault();
+
+    api.defaults.headers.common["Authorization"] = token;
+    await api
+      .post("/api/home", {
+        judul: judul,
+        deskripsi: deskripsi,
+      })
+      .then(() => {
+        navigate("/admin/home");
+      })
+      .catch((error) => {
+        setValidation(error.response.data);
+      });
+  };
+
+  return (
+    <div className="container mt-5 mb-5">
+      <div className="row">
+        <div className="col-md-3">
+          <SidebarMenu />
+        </div>
+        <div className="col-md-9">
+          <div className="card border-0 rounded shadow-sm">
+            <div className="card-header">ADD HOME</div>
+            <div className="card-body">
+              {validation.errors && (
+                <div className="alert alert-danger mt-2 pb-0">
+                  {validation.errors.map((error, index) => (
+                    <p key={index}>
+                      {error.path} : {error.msg}
+                    </p>
+                  ))}
+                </div>
+              )}
+              <form onSubmit={storeHome}>
+                <div className="form-group mb-3">
+                  <label className="mb-1 fw-bold">Judul</label>
+                  <input
+                    type="text"
+                    value={judul}
+                    onChange={(e) => setJudul(e.target.value)}
+                    className="form-control"
+                    placeholder="Judul"
+                  />
+                </div>
+
+                <div className="form-group mb-3">
+                  <label className="mb-1 fw-bold">Deskripsi</label>
+                  <textarea
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
+                    className="form-control"
+                    placeholder="Deskripsi"
+                  />
+                </div>
+
+                <button type="submit" className="btn btn-sm btn-primary">
+                  SAVE
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

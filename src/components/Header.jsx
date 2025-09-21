@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import imgHeader from "../assets/images/ndra-removebg-preview.png";
+import api from "../services/api";
 
 const Header = () => {
+  const [home, setHome] = useState([]);
+
+  const fetchDataHome = async () => {
+    try {
+      const response = await api.get("/api/home");
+      if (response.data.data.length > 0) {
+        setHome(response.data.data[0]);
+      }
+    } catch (error) {
+      console.error("Terjadi kesalahan saat mengambil data!", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataHome();
+  }, []);
+
+  if (!home) return <p>Loading...</p>;
   return (
     <section className="header-section" id="header">
       <div className="container">
         <div className="row align-items-center justify-content-between">
           <div className="col-md-7 mt-5">
-            <h3 className="header-title">Hallo, saya Andra</h3>
-            <p className="header-desc">
-              Halo! Saya Andra Elja Prama, seorang pengembang web dengan
-              keahlian di HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, dan
-              Laravel. Saya bersemangat dalam menciptakan desain web yang
-              menarik dan aplikasi web yang dinamis. Mari berkolaborasi untuk
-              mewujudkan proyek web yang luar biasa bersama!
-            </p>
+            <h3 className="header-title">Halo, saya {home.judul}</h3>
+            <p className="header-desc">{home.deskripsi}</p>
 
             <div className="header-skills">
               <a href="#" className="header-skill">
