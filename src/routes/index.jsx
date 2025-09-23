@@ -17,6 +17,10 @@ import EditUser from "../views/admin/users/edit.jsx";
 import HomeIndex from "../views/admin/home/index.jsx";
 import HomeCreate from "../views/admin/home/create.jsx";
 import HomeEdit from "../views/admin/home/edit.jsx";
+import PortofolioIndex from "../views/admin/portofolio/index.jsx";
+import PortofolioCreate from "../views/admin/portofolio/create.jsx";
+import PortofolioEdit from "../views/admin/portofolio/edit.jsx";
+
 export default function AppRoutes() {
   //destructure context "isAuthenticated"
   const { isAuthenticated } = useContext(AuthContext);
@@ -99,6 +103,26 @@ export default function AppRoutes() {
         path="/admin/home/edit/:id"
         element={
           isAuthenticated ? <HomeEdit /> : <Navigate to="/login" replace />
+        }
+      />
+
+      {/* route "/admin/portofolio" */}
+      <Route
+        path="/admin/portofolio"
+        element={
+          isAuthenticated ? <PortofolioIndex /> : <Navigate to="/login" replace />
+        }
+      />
+      <Route
+        path="/admin/portofolio/create"
+        element={
+          isAuthenticated ? <PortofolioCreate /> : <Navigate to="/login" replace />
+        }
+      />
+      <Route
+        path="/admin/portofolio/edit/:id"
+        element={
+          isAuthenticated ? <PortofolioEdit /> : <Navigate to="/login" replace />
         }
       />
     </Routes>

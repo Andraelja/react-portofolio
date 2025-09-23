@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { portofolio } from "./data";
+import api from "../services/api";
 
 const Portofolio = () => {
+  const [portofolio, setPortofolio] = useState([]);
+  
+  const fetchDataPortofolio = async () => {
+    try {
+      const response = await api.get("/api/portofolio");
+      if (response.data.data.length > 0) {
+        setPortofolio(response.data.data);
+      }
+    } catch (error) {
+      console.error("Terjadi kesalahan saat mengambil data!", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataPortofolio();
+  }, []);
+
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="container">
@@ -10,17 +28,17 @@ const Portofolio = () => {
 
         <div className="swiper portfolio-wrapper">
           <div className="swiper-wrapper">
-            <div className="swiper-slide d-flex flex-wrap">
+            <div className="swiper-slide d-flex flex-wrap gap-2">
               {portofolio.map((data) => (
                 <div key={data.id} className="card mr-3 mb-3">
                   <div className="card-body">
                     <img
-                      src={data.image}
+                      src={data.foto}
                       className="card-img-top rounded mb-3"
-                      alt={data.title}
+                      alt={data.nama}
                     />
-                    <h6 className="fw-semi-bold">{data.title}</h6>
-                    <a href={data.link} className="text-orange">
+                    <h6 className="fw-semi-bold">{data.nama}</h6>
+                    <a href={data.nama} className="text-orange">
                       Detail Portfolio
                     </a>
                   </div>
