@@ -58,7 +58,7 @@ const Header = () => {
           </div>
 
           <div className="col-md-5 text-center">
-            <img src={imgHeader} className="header-img" alt="Profile" />
+            <img src={home.foto} className="header-img" alt="Profile" />
           </div>
         </div>
       </div>

@@ -1,19 +1,9 @@
-//import useState dan useEffect
 import { useState } from "react";
-
-//import SidebarMenu
-
-//import useNavigate
 import { useNavigate } from "react-router-dom";
-
-//import js cookie
 import Cookies from "js-cookie";
-
-//import api
 import api from "../../../services/api";
 import SidebarMenu from "../../../components/SidebarMenu";
 
-//get token from cookies
 const token = Cookies.get("token");
 
 export default function UsersCreate() {
@@ -21,23 +11,35 @@ export default function UsersCreate() {
 
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
+  const [foto, setFoto] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [validation, setValidation] = useState([]);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFoto(file);
+    setPreview(URL.createObjectURL(file));
+  };
 
   const storeHome = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append("judul", judul);
+    formData.append("deskripsi", deskripsi);
+    if (foto) {
+      formData.append("foto", foto);
+    }
+
     api.defaults.headers.common["Authorization"] = token;
-    await api
-      .post("/api/home", {
-        judul: judul,
-        deskripsi: deskripsi,
-      })
-      .then(() => {
-        navigate("/admin/home");
-      })
-      .catch((error) => {
-        setValidation(error.response.data);
+    try {
+      await api.post("/api/home", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
+      navigate("/admin/home");
+    } catch (error) {
+      setValidation(error.response.data);
+    }
   };
 
   return (
@@ -79,6 +81,23 @@ export default function UsersCreate() {
                     className="form-control"
                     placeholder="Deskripsi"
                   />
+                </div>
+
+                <div className="form-group mb-3">
+                  <label className="mb-1 fw-bold">Foto</label>
+                  <input
+                    type="file"
+                    onChange={handleFileChange}
+                    className="form-control"
+                  />
+                  {preview && (
+                    <img
+                      src={preview}
+                      alt="Preview"
+                      className="img-thumbnail mt-2"
+                      width="200"
+                    />
+                  )}
                 </div>
 
                 <button type="submit" className="btn btn-sm btn-primary">

@@ -35,7 +35,7 @@ export default function HomeIndex() {
 
       try {
         await api.delete(`/api/home/${id}`);
-        fetchDataHome;
+        fetchDataHome();
       } catch (error) {
         console.error("There was an error deleting the home!", error);
       }
@@ -67,6 +67,7 @@ export default function HomeIndex() {
                   <tr>
                     <th scope="col">Judul</th>
                     <th scope="col">Deskripsi</th>
+                    <th scope="col">Foto</th>
                     <th scope="col" style={{ width: "17%" }}>
                       Actions
                     </th>
@@ -78,6 +79,17 @@ export default function HomeIndex() {
                       <tr key={index}>
                         <td>{home.judul}</td>
                         <td>{home.deskripsi}</td>
+                        <td className="text-center">
+                          {home.foto ? (
+                            <img
+                              src={home.foto}
+                              alt={home.judul}
+                              style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                            />
+                          ) : (
+                            <span className="text-muted">No Image</span>
+                          )}
+                        </td>
                         <td className="text-center">
                           <Link
                             to={`/admin/home/edit/${home.id}`}
