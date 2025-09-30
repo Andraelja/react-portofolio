@@ -88,6 +88,9 @@ export default function Register() {
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">REGISTER</button>
                             </form>
+                            <div className="text-end mt-4">
+                                <a href="/login">Kalo sudah ada akun, langsung login!</a>
+                            </div>
                         </div>
                     </div>
                 </div>

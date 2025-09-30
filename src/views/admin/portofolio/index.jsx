@@ -66,6 +66,7 @@ export default function PortofolioIndex() {
                 <thead className="bg-dark text-white">
                   <tr>
                     <th scope="col">Nama</th>
+                    <th scope="col">Deskripsi</th>
                     <th scope="col">Foto</th>
                     <th scope="col" style={{ width: "17%" }}>
                       Actions
@@ -77,6 +78,7 @@ export default function PortofolioIndex() {
                     portofolio.map((portofolio, index) => (
                       <tr key={index}>
                         <td>{portofolio.nama}</td>
+                        <td>{portofolio.deskripsi}</td>
                         <td className="text-center">
                           {portofolio.foto ? (
                             <img

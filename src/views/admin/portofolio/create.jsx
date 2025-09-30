@@ -10,6 +10,7 @@ export default function PortofolioCreate() {
   const navigate = useNavigate();
 
   const [nama, setNama] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
   const [foto, setFoto] = useState(null);
   const [preview, setPreview] = useState(null);
   const [validation, setValidation] = useState([]);
@@ -25,6 +26,7 @@ export default function PortofolioCreate() {
 
     const formData = new FormData();
     formData.append("nama", nama);
+    formData.append("deskripsi", deskripsi);
     if (foto) {
       formData.append("foto", foto);
     }
@@ -68,6 +70,17 @@ export default function PortofolioCreate() {
                     onChange={(e) => setNama(e.target.value)}
                     className="form-control"
                     placeholder="Nama"
+                  />
+                </div>
+
+                <div className="form-group mb-3">
+                  <label className="mb-1 fw-bold">Deskripsi</label>
+                  <input
+                    type="text"
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
+                    className="form-control"
+                    placeholder="Deskripsi"
                   />
                 </div>
 

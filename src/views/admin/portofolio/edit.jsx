@@ -11,6 +11,7 @@ export default function PortofolioEdit() {
   const { id } = useParams();
 
   const [nama, setNama] = useState("");
+  const [deskripsi, setDeskripsi] = useState("");
   const [foto, setFoto] = useState(null);
   const [preview, setPreview] = useState(null);
   const [validation, setValidation] = useState([]);
@@ -19,6 +20,7 @@ export default function PortofolioEdit() {
     try {
       const response = await api.get(`/api/portofolio/${id}`);
       setNama(response.data.data.nama);
+      setDeskripsi(response.data.data.deskripsi);
       if (response.data.data.foto) {
         setPreview(`/uploads/${response.data.data.foto}`); // sesuaikan path foto di server
       }
@@ -42,6 +44,7 @@ export default function PortofolioEdit() {
 
     const formData = new FormData();
     formData.append("nama", nama);
+    formData.append("deskripsi", deskripsi);
     if (foto) {
       formData.append("foto", foto);
     }
@@ -85,6 +88,17 @@ export default function PortofolioEdit() {
                     onChange={(e) => setNama(e.target.value)}
                     className="form-control"
                     placeholder="Nama"
+                  />
+                </div>
+
+                <div className="form-group mb-3">
+                  <label className="mb-1 fw-bold">Deskripsi</label>
+                  <input
+                    type="text"
+                    value={deskripsi}
+                    onChange={(e) => setDeskripsi(e.target.value)}
+                    className="form-control"
+                    placeholder="Deskripsi"
                   />
                 </div>
 

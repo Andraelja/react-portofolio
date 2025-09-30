@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { portofolio } from "./data";
 import api from "../services/api";
+import { Link } from "react-router-dom";
 
 const Portofolio = () => {
   const [portofolio, setPortofolio] = useState([]);
@@ -38,9 +39,9 @@ const Portofolio = () => {
                       alt={data.nama}
                     />
                     <h6 className="fw-semi-bold">{data.nama}</h6>
-                    <a href={data.nama} className="text-orange">
-                      Detail Portfolio
-                    </a>
+                    <Link to={`/detail/${data.id}`} className="text-orange">
+                        Detail Portofolio
+                    </Link>
                   </div>
                 </div>
               ))}

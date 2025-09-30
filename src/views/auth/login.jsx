@@ -97,6 +97,9 @@ export default function Login() {
                             </div>
                             <button type="submit" className="btn btn-primary w-100">LOGIN</button>
                         </form>
+                        <div className="text-end mt-4">
+                            <a href="/register">Kalo belum ada akun, buat dulu!</a>
+                        </div>
                     </div>
                 </div>
             </div>

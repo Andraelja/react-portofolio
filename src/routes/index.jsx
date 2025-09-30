@@ -20,6 +20,7 @@ import HomeEdit from "../views/admin/home/edit.jsx";
 import PortofolioIndex from "../views/admin/portofolio/index.jsx";
 import PortofolioCreate from "../views/admin/portofolio/create.jsx";
 import PortofolioEdit from "../views/admin/portofolio/edit.jsx";
+import DetailPage from "../views/home/detail.jsx";
 
 export default function AppRoutes() {
   //destructure context "isAuthenticated"
@@ -62,6 +63,13 @@ export default function AppRoutes() {
         }
       />
 
+      <Route
+        path="/detail/:id"
+        element={
+          isAuthenticated ? <DetailPage /> : <Navigate to="/login" replace />
+        }
+      />
+
       {/* route "/admin/user" */}
       <Route
         path="/admin/user"
@@ -98,7 +106,7 @@ export default function AppRoutes() {
           isAuthenticated ? <HomeCreate /> : <Navigate to="/login" replace />
         }
       />
-      
+
       <Route
         path="/admin/home/edit/:id"
         element={
