@@ -35,7 +35,7 @@ export default function AppRoutes() {
         path="/register"
         element={
           isAuthenticated ? (
-            <Navigate to="/admin/dashboard" replace />
+            <Navigate to="/admin/login" replace />
           ) : (
             <Register />
           )
