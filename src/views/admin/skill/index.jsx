@@ -11,12 +11,12 @@ export default function SkillIndex() {
 
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
-      try {
-        const response = await api.get("/api/skill");
-        setSkill(response.data.data);
-      } catch (error) {
-        console.error("There was an error fetching the skill!", error);
-      }
+        try {
+          const response = await api.get("/skill");
+          setSkill(response.data.data);
+        } catch (error) {
+          console.error("There was an error fetching the skill!", error);
+        }
     } else {
       console.error("Token is not available!");
     }
@@ -32,12 +32,12 @@ export default function SkillIndex() {
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
-      try {
-        await api.delete(`/api/skill/${id}`);
-        fetchDataSkill();
-      } catch (error) {
-        console.error("There was an error deleting the skill!", error);
-      }
+        try {
+          await api.delete(`/skill/${id}`);
+          fetchDataSkill();
+        } catch (error) {
+          console.error("There was an error deleting the skill!", error);
+        }
     } else {
       console.error("Token is not available!");
     }

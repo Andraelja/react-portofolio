@@ -12,12 +12,12 @@ export default function HomeIndex() {
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
-      try {
-        const response = await api.get("/home");
-        setHome(response.data.data);
-      } catch (error) {
-        console.error("Terjadi kesalahan saat mengambil data!");
-      }
+        try {
+          const response = await api.get("/home");
+          setHome(response.data.data);
+        } catch (error) {
+          console.error("Terjadi kesalahan saat mengambil data!");
+        }
     } else {
       console.error("Token tidak tersedia!");
     }
@@ -33,12 +33,12 @@ export default function HomeIndex() {
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
-      try {
-        await api.delete(`/home/${id}`);
-        fetchDataHome();
-      } catch (error) {
-        console.error("There was an error deleting the home!", error);
-      }
+        try {
+          await api.delete(`/home/${id}`);
+          fetchDataHome();
+        } catch (error) {
+          console.error("There was an error deleting the home!", error);
+        }
     } else {
       console.error("Token is not available!");
     }

@@ -13,12 +13,12 @@ export default function UsersIndex() {
       api.defaults.headers.common["Authorization"] = token;
 
       //fetch data from API with Axios
-      try {
-        const response = await api.get("/api/user");
-        setUsers(response.data.data);
-      } catch (error) {
-        console.error("There was an error fetching the users!", error);
-      }
+        try {
+          const response = await api.get("/user");
+          setUsers(response.data.data);
+        } catch (error) {
+          console.error("There was an error fetching the users!", error);
+        }
     } else {
       console.error("Token is not available!");
     }
@@ -34,12 +34,12 @@ export default function UsersIndex() {
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
 
-      try {
-        await api.delete(`/api/user/${id}`);
-        fetchDataUsers();
-      } catch (error) {
-        console.error("There was an error deleting the user!", error);
-      }
+        try {
+          await api.delete(`/user/${id}`);
+          fetchDataUsers();
+        } catch (error) {
+          console.error("There was an error deleting the user!", error);
+        }
     } else {
       console.error("Token is not available!");
     }
