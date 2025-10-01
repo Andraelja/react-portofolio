@@ -13,7 +13,7 @@ export default function HomeIndex() {
       api.defaults.headers.common["Authorization"] = token;
 
         try {
-          const response = await api.get("/home");
+          const response = await api.get("/api/home");
           setHome(response.data.data);
         } catch (error) {
           console.error("Terjadi kesalahan saat mengambil data!");
@@ -34,7 +34,7 @@ export default function HomeIndex() {
       api.defaults.headers.common["Authorization"] = token;
 
         try {
-          await api.delete(`/home/${id}`);
+          await api.delete(`/api/home/${id}`);
           fetchDataHome();
         } catch (error) {
           console.error("There was an error deleting the home!", error);

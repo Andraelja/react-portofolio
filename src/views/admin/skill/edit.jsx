@@ -14,7 +14,7 @@ export default function UsersEdit() {
   const [validation, setValidation] = useState([]);
 
   const fetchDetailSkill = async () => {
-    await api.get(`/skill/${id}`).then((response) => {
+    await api.get(`/api/skill/${id}`).then((response) => {
       setNama(response.data.data.nama);
       setPersentase(response.data.data.persentase);
     });
@@ -29,7 +29,7 @@ export default function UsersEdit() {
 
     api.defaults.headers.common["Authorization"] = token;
     await api
-      .put(`/skill/${id}`, {
+      .put(`/api/skill/${id}`, {
         nama: nama,
         persentase: persentase,
       })

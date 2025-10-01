@@ -16,7 +16,7 @@ export default function UsersEdit() {
 
   const fetchDetailUser = async () => {
     //fetch data
-    await api.get(`/user/${id}`).then((response) => {
+    await api.get(`/api/user/${id}`).then((response) => {
       setName(response.data.data.name);
       setUsername(response.data.data.username);
     });
@@ -31,7 +31,7 @@ export default function UsersEdit() {
 
     api.defaults.headers.common["Authorization"] = token;
     await api
-      .put(`/user/${id}`, {
+      .put(`/api/user/${id}`, {
         name: name,
         username: username,
         password: password,

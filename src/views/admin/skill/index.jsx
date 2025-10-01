@@ -12,7 +12,7 @@ export default function SkillIndex() {
     if (token) {
       api.defaults.headers.common["Authorization"] = token;
         try {
-          const response = await api.get("/skill");
+          const response = await api.get("/api/skill");
           setSkill(response.data.data);
         } catch (error) {
           console.error("There was an error fetching the skill!", error);
@@ -33,7 +33,7 @@ export default function SkillIndex() {
       api.defaults.headers.common["Authorization"] = token;
 
         try {
-          await api.delete(`/skill/${id}`);
+          await api.delete(`/api/skill/${id}`);
           fetchDataSkill();
         } catch (error) {
           console.error("There was an error deleting the skill!", error);

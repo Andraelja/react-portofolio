@@ -14,7 +14,7 @@ export default function UsersIndex() {
 
       //fetch data from API with Axios
         try {
-          const response = await api.get("/user");
+          const response = await api.get("/api/user");
           setUsers(response.data.data);
         } catch (error) {
           console.error("There was an error fetching the users!", error);
@@ -35,7 +35,7 @@ export default function UsersIndex() {
       api.defaults.headers.common["Authorization"] = token;
 
         try {
-          await api.delete(`/user/${id}`);
+          await api.delete(`/api/user/${id}`);
           fetchDataUsers();
         } catch (error) {
           console.error("There was an error deleting the user!", error);
