@@ -21,6 +21,9 @@ import PortofolioIndex from "../views/admin/portofolio/index.jsx";
 import PortofolioCreate from "../views/admin/portofolio/create.jsx";
 import PortofolioEdit from "../views/admin/portofolio/edit.jsx";
 import DetailPage from "../views/home/detail.jsx";
+import SkillIndex from "../views/admin/skill/index.jsx";
+import CreateSkill from "../views/admin/skill/create.jsx";
+import EditSkill from "../views/admin/skill/edit.jsx";
 
 export default function AppRoutes() {
   //destructure context "isAuthenticated"
@@ -133,6 +136,27 @@ export default function AppRoutes() {
           isAuthenticated ? <PortofolioEdit /> : <Navigate to="/login" replace />
         }
       />
+
+      {/* Skill */}
+      <Route
+        path="/admin/skill"
+        element={
+          isAuthenticated ? <SkillIndex /> : <Navigate to="/login" replace />
+        }
+      />
+      <Route
+        path="/admin/skill/create"
+        element={
+          isAuthenticated ? <CreateSkill /> : <Navigate to="/login" replace />
+        }
+      />
+      <Route
+        path="/admin/skill/edit/:id"
+        element={
+          isAuthenticated ? <EditSkill /> : <Navigate to="/login" replace />
+        }
+      />
+
     </Routes>
   );
 }

@@ -49,6 +49,12 @@ export default function SidebarMenu() {
           >
             Portofolio
           </Link>
+          <Link
+            to="/admin/skill"
+            className="list-group-item list-group-item-action"
+          >
+            Skill
+          </Link>
           <a
             onClick={logout}
             className="list-group-item list-group-item-action"
