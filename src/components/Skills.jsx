@@ -26,7 +26,6 @@ const Skills = () => {
             <h2 className="section-title text-white mb-5">
               Programming Skills
             </h2>
-
             <div className="row">
               {skill.map((item) => (
                 <div key={item.id} className="col-md-6 mb-3">
@@ -48,7 +47,6 @@ const Skills = () => {
               ))}
             </div>
           </div>
-
           <div className="col-md-5 justify-content-between">
             <img src={img} className="skills-img mt-5" alt="Skills" />
           </div>
