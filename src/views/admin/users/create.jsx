@@ -4,7 +4,7 @@ import { useState } from 'react';
 //import SidebarMenu
 
 //import useNavigate
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 //import js cookie
 import Cookies from 'js-cookie';
@@ -50,6 +50,7 @@ export default function UsersCreate() {
                 </div>
                 <div className="col-md-9">
                     <div className="card border-0 rounded shadow-sm">
+                    <Link to="/admin/user" className="d-flex justify-content-end">Kembali</Link>
                         <div className="card-header">
                             ADD USER
                         </div>

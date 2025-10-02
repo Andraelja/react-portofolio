@@ -14,6 +14,8 @@ export default function Dashboard() {
         }
     }, []);
 
+    let waktu = Date.now()
+
     return (
         <div className="container mt-5 mb-5">
             <div className="row">
@@ -28,6 +30,9 @@ export default function Dashboard() {
                         <div className="card-body">
                             Selamat Datang, <strong>{user?.name}</strong><br />
                         </div>
+                    </div>
+                    <div>
+                        <h1>{waktu}</h1>
                     </div>
                 </div>
             </div>

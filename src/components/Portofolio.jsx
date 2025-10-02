@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Portofolio = () => {
   const [portofolio, setPortofolio] = useState([]);
-  
+
   const fetchDataPortofolio = async () => {
     try {
       const response = await api.get("/api/portofolio");
@@ -30,21 +30,25 @@ const Portofolio = () => {
         <div className="swiper portfolio-wrapper">
           <div className="swiper-wrapper">
             <div className="swiper-slide d-flex flex-wrap gap-2">
-              {portofolio.map((data) => (
-                <div key={data.id} className="card mr-3 mb-3">
-                  <div className="card-body">
-                    <img
-                      src={data.foto}
-                      className="card-img-top rounded mb-3"
-                      alt={data.nama}
-                    />
-                    <h6 className="fw-semi-bold">{data.nama}</h6>
-                    <Link to={`/detail/${data.id}`} className="text-orange">
-                        Detail Portofolio
-                    </Link>
+              <div className="row">
+                {portofolio.map((data) => (
+                  <div className="col-md-4">
+                    <div key={data.id} className="card mr-3 mb-3">
+                      <div className="card-body">
+                        <img
+                          src={data.foto}
+                          className="card-img-top rounded mb-3"
+                          alt={data.nama}
+                        />
+                        <h6 className="fw-semi-bold">{data.nama}</h6>
+                        <Link to={`/detail/${data.id}`} className="text-orange">
+                          Detail Portofolio
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

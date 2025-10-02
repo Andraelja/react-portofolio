@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import api from '../../../services/api';
 import SidebarMenu from '../../../components/SidebarMenu';
@@ -36,6 +36,7 @@ export default function CreateSkill() {
                 </div>
                 <div className="col-md-9">
                     <div className="card border-0 rounded shadow-sm">
+                    <Link to="/admin/skill" className="d-flex justify-content-end">Kembali</Link>
                         <div className="card-header">
                             ADD SKILL
                         </div>
